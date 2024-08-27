@@ -309,7 +309,7 @@
     - ignorecase: boolean, ignore case
     */
     "search": {
-        "enabled": false,
+        "enabled": true,
         "advanced": true,
         "debounceTime": 300,
         "ignorecase": true

@@ -28,6 +28,33 @@ configurations).
 > npm run build
 ~~~
 
+## Setup
+
+Depends on your server and your apache configs, but this is an example of what you need:
+
+Run the follow commands
+~~~sh
+> unzip -d /var/www/html/ _h5ai.zip
+> sudo apt update
+> sudo apt-get install php libapache2-mod-php
+> sudo a2enmod mpm_prefork && sudo a2enmod php7.4
+> sudo apt-get install php7.4-gd
+> sudo apt install imagemagick
+~~~
+
+Add the following to Apache SSL-enabled sites-available config:
+- DirectoryIndex index.html index.php /_h5ai/public/index.php 
+
+Then
+~~~sh
+> sudo service apache2 restart
+> sudo chgrp www-data /var/www/html/_h5ai/public/cache/
+> sudo chgrp www-data /var/www/html/_h5ai/private/cache/
+> sudo chmod g+w /var/www/html/_h5ai/private/cache/
+> sudo chmod g+w /var/www/html/_h5ai/public/cache/
+~~~
+
+That should be it. Check out if you have everything enabled from localhost/_h5ai/public. After that, all web server indexes should be using the files defined by h5ai.
 
 ## License
 
