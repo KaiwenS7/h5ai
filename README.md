@@ -28,6 +28,12 @@ configurations).
 > npm run build
 ~~~
 
+NOTE: Likely need to run legacy openssl for the Hash function. Should update if you want to use passwords and such. To run without updating:
+~~~sh
+> export NODE_OPTIONS=--openssl-legacy-provider
+> npm run build
+~~~
+
 ## Setup
 
 Depends on your server and your apache configs, but this is an example of what you need:
